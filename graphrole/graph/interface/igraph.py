@@ -72,8 +72,8 @@ class IgraphInterface(BaseGraphInterface):
             ego_nodes = self.G.neighborhood(node, order=1, mode='out')
             ego_boundary = self._get_edge_boundary(ego_nodes)
             features = {
-                'internal_edges': self._get_edge_sum_from_nodes(ego_nodes),
-                'external_edges': self._get_edge_sum_from_edges(ego_boundary),
+                'internal_edges': self._get_edge_sum_from_nodes(ego_nodes)
+#                 'external_edges': self._get_edge_sum_from_edges(ego_boundary),
             }
             egonet_features[node] = features
         return pd.DataFrame.from_dict(egonet_features, orient='index')
