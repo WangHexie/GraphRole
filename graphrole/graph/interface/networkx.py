@@ -64,8 +64,8 @@ class NetworkxInterface(BaseGraphInterface):
             ego = nx.ego_graph(self.G, node, radius=1)
             ego_boundary = list(nx.edge_boundary(self.G, ego.nodes))
             egonet_features[node] = {
-                'internal_edges': self._get_edge_sum(ego.edges),
-                'external_edges': self._get_edge_sum(ego_boundary)
+                'internal_edges': self._get_edge_sum(ego.edges)
+#                 'external_edges': self._get_edge_sum(ego_boundary)
             }
         return pd.DataFrame.from_dict(egonet_features, orient='index')
 
